@@ -1,0 +1,316 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+<title>博媛二手车交易网管理系统</title>
+<link rel="stylesheet" href="../../static/assets/css/fonts/linecons/css/linecons.css">
+<link rel="stylesheet" href="../../static/assets/css/fonts/fontawesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../static/assets/css/bootstrap.css">
+<link rel="stylesheet" href="../../static/assets/css/xenon-core.css">
+<link rel="stylesheet" href="../../static/assets/css/xenon-forms.css">
+<link rel="stylesheet" href="../../static/assets/css/xenon-components.css">
+<link rel="stylesheet" href="../../static/assets/css/xenon-skins.css">
+<script src="../../static/assets/js/jquery-1.11.1.min.js"></script>
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body class="page-body">
+<div class="page-container">
+  <div class="sidebar-menu toggle-others fixed"> 
+    <!--菜单-->
+    <div class="sidebar-menu-inner">
+      <header class="logo-env"> 
+        <!-- logo -->
+        <div class="logo"> <a href="index.html" class="logo-expanded"> <img src="../../static/assets/images/logo@2x.png" height="40" alt="总运营平台" /> </a> <a href="index.html" class="logo-collapsed"> <img src="../../static/assets/images/logo-collapsed@2x.png" width="40" alt="" /> </a> </div>
+        <div class="mobile-menu-toggle visible-xs"> <a href="#" data-toggle="user-info-menu"> <i class="fa-magnet"></i> </a> <a href="#" data-toggle="mobile-menu"> <i class="fa-bars"></i> </a> </div>
+      </header>
+      <ul id="main-menu" class="main-menu">
+        <li class="opened active"> <a href="{% url 'index' %}"> <i class="linecons-desktop"></i> <span class="title">首页</span> </a> </li>
+        <li> <a href="javascript:;"> <i class="linecons-photo"></i> <span class="title">广告管理</span> </a>
+          <ul>
+            <li> <a href="{% url 'banner' %}"> <span class="title">首页Banner管理</span> </a> </li>
+            <li> <a href="{% url 'advertising' %}"> <span class="title">广告位管理</span> </a> </li>
+          </ul>
+        </li>
+        <li> <a href="javascript:;"> <i class="linecons-truck"></i> <span class="title">二手车管理</span> </a>
+          <ul>
+            <li> <a href="{% url 'brand' %}"> <span class="title">品牌管理</span> </a> </li>
+            <li> <a href="{% url 'car_type' %}"> <span class="title">车型管理</span> </a> </li>
+            <li> <a href="{% url 'car_serie' %}"> <span class="title">级别管理</span> </a> </li>
+            <li> <a href="{% url 'cars' %}"> <span class="title">车源管理</span> </a> </li>
+          </ul>
+        </li>
+        <li> <a href="javascript:;"> <i class="linecons-shop"></i> <span class="title">车辆审核管理</span> </a>
+          <ul>
+            <li> <a href="{% url 'car_check'%}"> <span class="title">车辆审核管理</span> </a> </li>
+          </ul>
+        </li>
+        <li> <a href="javascript:;"> <i class="linecons-calendar"></i> <span class="title">预约管理</span> </a>
+          <ul>
+            <li> <a href="{% url 'sell_appointment' %}"> <span class="title">卖车预约管理</span> </a> </li>
+            <li> <a href="{% url 'vip_appointment' %}"> <span class="title">会员预约管理</span> </a> </li>
+          </ul>
+        </li>
+        <li> <a href="javascript:;"> <i class="linecons-user"></i> <span class="title">会员管理</span> </a>
+          <ul>
+            <li> <a href="{% url 'vip' %}"> <span class="title">会员管理</span> </a> </li>
+          </ul>
+        </li>
+        <li> <a href="javascript:;"> <i class="linecons-doc"></i> <span class="title">单页管理</span> </a>
+          <ul>
+            <li> <a href="{% url 'corporate_culture' %}"> <span class="title">企业文化</span> </a> </li>
+          </ul>
+        </li>
+        <li> <a href="javascript:;"> <i class="linecons-cloud"></i> <span class="title">模块管理</span> </a>
+          <ul>
+            <li> <a href="{% url 'vehicle_inspection' %}"> <span class="title">车况检测</span> </a> </li>
+            <li> <a href="{% url 'car_maintenance' %}"> <span class="title">保养车</span> </a> </li>
+            <li> <a href="{% url 'insurance_products' %}"> <span class="title">保险超市</span> </a> </li>
+            <li> <a href="{% url 'fcwt' %}"> <span class="title">洗车服务</span> </a> </li>
+          </ul>
+        </li>
+        <li> <a href="javascript:;"> <i class="linecons-cog"></i> <span class="title">系统设置</span> </a>
+          <ul>
+            <li> <a href="{% url 'change_passwd' %}"> <span class="title">修改密码</span> </a> </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!--菜单 end--> 
+  </div>
+  <div class="main-content"> 
+    <!--功能-->
+    <nav class="navbar user-info-navbar" role="navigation"> 
+      <!-- 隐藏导航区 -->
+      <ul class="user-info-menu left-links list-inline list-unstyled">
+        <li class="hidden-sm hidden-xs"> <a href="javascript:;" data-toggle="sidebar"> <i class="fa-bars"></i> </a> </li>
+      </ul>
+      <!-- 账户信息 -->
+      <ul class="user-info-menu right-links list-inline list-unstyled">
+        <li class="dropdown user-profile"> <a href="#" data-toggle="dropdown"> <img src="../../static/assets/images/user.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" /> <span> Admin <i class="fa-angle-down"></i> </span> </a>
+          <ul class="dropdown-menu user-profile-menu list-unstyled">
+            <li> <a href="{% url 'change_passwd' %}"> <i class="fa-edit"></i> 修改密码 </a> </li>
+            <li class="last"> <a href="{% url 'logout' %}"> <i class="fa-lock"></i> 退出 </a> </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!--功能 end--> 
+    <!--核心-->
+    <div class="row">
+      <div class="col-sm-12">
+        <h3 class="text-gray margin_bottom"> <small class="text-gray">数据统计</small> </h3>
+      </div>
+      <div class="col-sm-3">
+        <div class="xe-widget xe-counter">
+          <div class="x-lower">
+            <div class="xe-icon"> <i class="fa-paper-plane"></i> </div>
+            <div class="xe-label"> <strong class="num">{{ add_vip | default:333}}</strong> <span>今日新增会员</span> </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="xe-widget xe-counter xe-counter-turquoise">
+          <div class="x-lower">
+            <div class="xe-icon"> <i class="fa-globe"></i> </div>
+            <div class="xe-label"> <strong class="num">{{add_car | default:33}}</strong> <span>今日新增车辆</span> </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="xe-widget xe-counter xe-counter-info">
+          <div class="x-lower">
+            <div class="xe-icon"> <i class="fa-space-shuttle"></i> </div>
+            <div class="xe-label"> <strong class="num">{{add_sell | default:32}}</strong> <span>今日新增卖车</span> </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="xe-widget xe-counter xe-counter-warning">
+          <div class="x-lower">
+            <div class="xe-icon"> <i class="fa-warning"></i> </div>
+            <div class="xe-label"> <strong class="num">{{add_aimt | default:20}}</strong> <span>今日新增预约</span> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 loading_list">
+        <div class="col-sm-6">
+          <div class="xe-widget xe-counter-block xe-counter-block-red">
+            <div class="xe-upper">
+              <div class="xe-icon"> <i class="fa-shield"></i> </div>
+              <div class="xe-label"> <strong class="num">{{ wait_check | default:99 }}</strong> <span>待审核车辆</span> </div>
+            </div>
+            <div class="xe-lower">
+              <div class="border"></div>
+              <span><a href="{% url 'car_check' %}">去处理 <i class="fa fa-angle-right"></i></a></span> </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="xe-widget xe-counter-block xe-counter-block-purple">
+            <div class="xe-upper">
+              <div class="xe-icon"> <i class="fa-calendar"></i> </div>
+              <div class="xe-label"> <strong class="num">12</strong> <span>待预约卖车</span> </div>
+            </div>
+            <div class="xe-lower">
+              <div class="border"></div>
+              <span><a href="{% url 'sell_appointment' %}">去处理 <i class="fa fa-angle-right"></i></a></span> </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="xe-widget xe-counter-block xe-counter-block-blue">
+            <div class="xe-upper">
+              <div class="xe-icon"> <i class="fa-car"></i> </div>
+              <div class="xe-label"> <strong class="num">{{car_count | default:1000}}</strong> <span>车源管理</span> </div>
+            </div>
+            <div class="xe-lower">
+              <div class="border"></div>
+              <span><a href="{% url 'cars' %}">去查看 <i class="fa fa-angle-right"></i></a></span> </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="xe-widget xe-counter-block xe-counter-block-orange">
+            <div class="xe-upper">
+              <div class="xe-icon"> <i class="fa-user"></i> </div>
+              <div class="xe-label"> <strong class="num">{{vip_count | default:260}}</strong> <span>会员管理</span> </div>
+            </div>
+            <div class="xe-lower">
+              <div class="border"></div>
+              <span><a href="{% url 'vip' %}">去查看 <i class="fa fa-angle-right"></i></a></span> </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="panel-title"> 二手车状态分布图 </div>
+          </div>
+          <div class="panel-body"> 
+            <!--数据--> 
+            <div class="loading_code" id="container"></div>
+            <!--数据 end--> 
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title"> 卖车预约信息 </div>
+        <div class="pull-right"><a href="{% url 'sell_appointment' %}" style="font-size: 14px;">更多 &raquo;</a></div>
+      </div>
+      <div class="panel-body">
+        <div class="dataTables_wrapper form-inline dt-bootstrap"> 
+          <!--暂无数据-->
+          <div class="none_data" style="display: none;"> <img src="../../static/assets/images/none_data.png" alt="">
+            <p>暂无相关数据</p>
+          </div>
+          <!--暂无数据 end--> 
+          <!--数据-->
+          <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+            <table class="table table-striped" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>会员名称</th>
+                  <th>预约时间</th>
+                  <th>预约人电话</th>
+                  <th>状态</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                {% for sell_user in sell_aimts %}
+                 <tr>
+                  <td>{{sell_user.name}}</td>
+                  <td>{{sell_user.time}}</td>
+                  <td>{{sell_user.phone}}</td>
+                  <td><span class="label label-orange label-mini">{{sell_user.get_status_display}}</span></td>
+                </tr>
+                {% endfor %}
+                
+
+               
+                 
+              </tbody>
+            </table>
+          </div>
+          <!--数据 end--> 
+        </div>
+      </div>
+    </div>
+    <!--核心 end--> 
+    <!-- 底部 -->
+    <footer class="main-footer sticky footer-type-1">
+      <div class="footer-inner">
+        <div class="footer-text"> &copy; 2019 <strong>博媛二手车交易网管理系统</strong> All Rights Reserved. </div>
+        <div class="go-up"> <a href="#" rel="go-top"> <i class="fa-angle-up"></i> </a> </div>
+      </div>
+    </footer>
+    <!--底部 end--> 
+  </div>
+</div>
+<!--统计脚本--> 
+<script src="../../static/Highcharts/code/highcharts.js"></script>
+<script src="../../static/Highcharts/code/modules/exporting.js"></script>
+<script src="../../static/Highcharts/code/modules/drilldown.js"></script>
+<script src="../Highcharts-plugins/highcharts-zh_CN.js"></script> 
+<script>
+	// 二手车状态分布图
+	Highcharts.chart('container', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: ''
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.0f}</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: false
+            },
+            showInLegend: true
+        }
+    },
+    series: [{
+        name: '车辆数',
+        colorByPoint: true,
+        data: [{
+            name: '在售车源',
+            y: 100,
+            sliced: true,
+            selected: true
+        }, {
+            name: '已售车源',
+            y: 120
+        }]
+    }]
+});
+</script> 
+<!--统计脚本 end--> 
+<!-- 公共脚本 --> 
+<script src="../../static/assets/js/bootstrap.min.js"></script>
+<script src="../../static/assets/js/TweenMax.min.js"></script>
+<script src="../../static/assets/js/resizeable.js"></script>
+<script src="../../static/assets/js/joinable.js"></script>
+<script src="../../static/assets/js/xenon-toggles.js"></script>
+<!-- JavaScripts initializations and stuff --> 
+<script src="../../static/assets/js/xenon-custom.js"></script>
+</body>
+</html>
